@@ -1,48 +1,49 @@
-🧊 Antarctic Digital Twin
+# 🧊 Antarctic Digital Twin
 
-A Unified Platform for Antarctic Station Monitoring, Simulation & Decision Support
+### A Unified Platform for Antarctic Station Monitoring, Simulation & Decision Support
 
-«OBSERVE → ANALYZE → SIMULATE → RECOMMEND → ACT»
+> **OBSERVE → ANALYZE → SIMULATE → RECOMMEND → ACT**
 
-A web-based Antarctic Digital Twin that creates a unified operational view of research stations by combining environmental monitoring, energy management, infrastructure health, inventory, logistics, alerts, and scenario simulation.
+A web-based **Antarctic Digital Twin** that creates a unified operational view of research stations by combining environmental monitoring, energy management, infrastructure health, inventory, logistics, alerts, and scenario simulation.
 
-Developed for Smart India Hackathon 2026 — PS-26060.
+Developed for **Smart India Hackathon 2026 — PS-26060**.
 
 ---
 
-🌐 Overview
+## 🌐 Overview
 
 Antarctic research stations operate in an extremely harsh and isolated environment where weather conditions, energy availability, resources, infrastructure, and logistics are closely interconnected.
 
-The Antarctic Digital Twin provides a single interactive platform to monitor these systems and understand how different events can affect station operations.
+The Antarctic Digital Twin provides a **single interactive platform** to monitor these systems and understand how different events can affect station operations.
 
-The platform currently models Maitri and Bharati research stations and includes live simulated telemetry and scenario-based simulations.
-
----
-
-🎯 Problem Statement
-
-Challenge| Impact| Digital Twin Approach
-🌡️ Rapid weather changes| Threat to personnel and operations| Environmental monitoring
-⚡ Energy constraints| Reduced operational capability| Energy & battery tracking
-🏗️ Equipment health| Unexpected infrastructure failures| Asset health monitoring
-📦 Limited resources| Risk of critical shortages| Inventory monitoring
-🚢 Logistics delays| Delayed resupply and field operations| Logistics simulation
-🚨 Distributed information| Difficult decision-making| Unified operational dashboard
-🧪 Uncertain scenarios| Difficult to predict consequences| What-if simulation
+The platform currently models **Maitri and Bharati research stations** and includes live simulated telemetry and scenario-based simulations.
 
 ---
 
-🛰️ Key Features
+## 🎯 Problem Statement
 
-🗺️ Station Monitoring
+| Challenge | Impact | Digital Twin Approach |
+|---|---|---|
+| 🌡️ Rapid weather changes | Threat to personnel and operations | Environmental monitoring |
+| ⚡ Energy constraints | Reduced operational capability | Energy & battery tracking |
+| 🏗️ Equipment health | Unexpected infrastructure failures | Asset health monitoring |
+| 📦 Limited resources | Risk of critical shortages | Inventory monitoring |
+| 🚢 Logistics delays | Delayed resupply and field operations | Logistics simulation |
+| 🚨 Distributed information | Difficult decision-making | Unified operational dashboard |
+| 🧪 Uncertain scenarios | Difficult to predict consequences | What-if simulation |
+
+---
+
+## 🛰️ Key Features
+
+### 🗺️ Station Monitoring
 
 - Maitri and Bharati station profiles
 - Interactive Antarctic map
 - Station-level operational overview
 - Centralized monitoring dashboard
 
-🌡️ Environment Monitoring
+### 🌡️ Environment Monitoring
 
 - Temperature
 - Humidity
@@ -51,7 +52,7 @@ Challenge| Impact| Digital Twin Approach
 - Historical environmental trends
 - Live simulated telemetry
 
-⚡ Energy Management
+### ⚡ Energy Management
 
 - Energy generation
 - Energy consumption
@@ -60,9 +61,9 @@ Challenge| Impact| Digital Twin Approach
 - Historical energy data
 - Energy balance monitoring
 
-🏗️ Infrastructure Monitoring
+### 🏗️ Infrastructure Monitoring
 
-Track the health and operational status of critical assets:
+Track the health and operational status of critical station assets:
 
 - Main Power System
 - Heating System
@@ -73,7 +74,7 @@ Track the health and operational status of critical assets:
 - Waste & Incineration
 - External Operations
 
-📦 Inventory & Logistics
+### 📦 Inventory & Logistics
 
 Monitor critical station resources:
 
@@ -85,7 +86,7 @@ Monitor critical station resources:
 
 The platform tracks current availability, consumption, priority, and estimated days remaining.
 
-🚨 Alerts & Risk Detection
+### 🚨 Alerts & Risk Detection
 
 Automatically identify critical conditions such as:
 
@@ -95,11 +96,11 @@ Automatically identify critical conditions such as:
 - Low fuel availability
 - Negative energy balance
 
-🧪 Scenario Simulation
+### 🧪 Scenario Simulation
 
 Test the impact of operational scenarios without affecting the station's baseline data.
 
-Available scenarios:
+**Available scenarios:**
 
 - 🌨️ Extreme Weather
 - ⚡ Energy Spike
@@ -108,8 +109,9 @@ Available scenarios:
 
 ---
 
-🔄 Core Operational Flow
+## 🔄 Core Operational Flow
 
+```mermaid
 flowchart TB
     A[Station Data] --> B[Digital Twin]
     B --> C[Monitor Station]
@@ -129,14 +131,15 @@ flowchart TB
     H --> J[Risk Assessment]
     J --> K[Generate Recommendation]
     K --> L[Operational Action]
+```
 
 ---
 
-🧠 Digital Twin Architecture
+## 🧠 Digital Twin Architecture
 
+```mermaid
 flowchart TB
-    A[Antarctic Research Stations]
-    A --> B[Digital Twin Backend]
+    A[Antarctic Research Stations] --> B[Digital Twin Backend]
 
     B --> C[Station Data Layer]
 
@@ -167,13 +170,15 @@ flowchart TB
     N --> P[Visualization]
     N --> Q[Risk Assessment]
     N --> R[Decision Support]
+```
 
 ---
 
-🧪 Scenario Simulation
+## 🧪 Scenario Simulation
 
 The simulation engine applies controlled changes to the digital twin to estimate how a scenario could affect station operations.
 
+```mermaid
 flowchart TB
     A[Operator Selects Scenario]
     A --> B[Simulation Engine]
@@ -194,9 +199,11 @@ flowchart TB
     I --> J[Generate Recommendations]
     J --> K[Display Simulation Results]
     K --> L[Operational Decision]
+```
 
-Example: Extreme Weather
+### Example: Extreme Weather
 
+```text
 Extreme Weather
        ↓
 Temperature & Wind Change
@@ -208,11 +215,13 @@ Battery / Fuel Impact
 Resource & Operational Risk
        ↓
 Recommended Response
+```
 
 ---
 
-🏗️ System Architecture
+## 🏗️ System Architecture
 
+```mermaid
 flowchart TB
     A[Operator]
     A --> B[React Frontend]
@@ -248,59 +257,63 @@ flowchart TB
     P --> Q[Risk Assessment]
     Q --> R[Recommendations]
     R --> S[Operator Decision]
+```
 
 ---
 
-📊 Platform Modules
+## 📊 Platform Modules
 
-Module| Purpose
-Overview| Overall station operational status
-Stations| Station information and location
-Environment| Environmental conditions and trends
-Energy| Power, battery and fuel monitoring
-Infrastructure| Critical asset health
-Logistics| Resource and logistics status
-Alerts| Operational risk notifications
-Simulation| What-if scenario analysis
-Satellite Link| Communication interface
-Data Monitor| Telemetry monitoring
+| Module | Purpose |
+|---|---|
+| **Overview** | Overall station operational status |
+| **Stations** | Station information and location |
+| **Environment** | Environmental conditions and trends |
+| **Energy** | Power, battery and fuel monitoring |
+| **Infrastructure** | Critical asset health |
+| **Logistics** | Resource and logistics status |
+| **Alerts** | Operational risk notifications |
+| **Simulation** | What-if scenario analysis |
+| **Satellite Link** | Communication interface |
+| **Data Monitor** | Telemetry monitoring |
 
 ---
 
-🏔️ Supported Stations
+## 🏔️ Supported Stations
 
-Maitri
+### Maitri
 
-Location: Schirmacher Oasis, Antarctica
+**Location:** Schirmacher Oasis, Antarctica
 
 The digital twin includes environmental, energy, infrastructure, inventory, and operational information for the Maitri station.
 
-Bharati
+### Bharati
 
-Location: Stornes Peninsula, Antarctica
+**Location:** Stornes Peninsula, Antarctica
 
 Bharati is represented as a second Antarctic research station, demonstrating multi-station monitoring through the same platform.
 
 ---
 
-🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-Category| Technology
-Frontend| React 19
-Build Tool| Vite
-Styling| CSS, Tailwind CSS
-Maps| Leaflet, React Leaflet
-Charts| Recharts
-Icons| Lucide React
-Backend| Node.js, Express
-API| REST
-Data| JavaScript-based datasets
-Simulation| Node.js simulation engine
+| Category | Technology |
+|---|---|
+| **Frontend** | React 19 |
+| **Build Tool** | Vite |
+| **Styling** | CSS, Tailwind CSS |
+| **Maps** | Leaflet, React Leaflet |
+| **Charts** | Recharts |
+| **Icons** | Lucide React |
+| **Backend** | Node.js, Express |
+| **API** | REST |
+| **Data** | JavaScript-based datasets |
+| **Simulation** | Node.js simulation engine |
 
 ---
 
-📁 Project Structure
+## 📁 Project Structure
 
+```text
 PS-26060-final-platform/
 │
 ├── backend/
@@ -330,11 +343,13 @@ PS-26060-final-platform/
     ├── index.html
     ├── vite.config.js
     └── package.json
+```
 
 ---
 
-🔌 API Endpoints
+## 🔌 API Endpoints
 
+```text
 GET  /api/health
 
 GET  /api/stations
@@ -349,44 +364,54 @@ GET  /api/stations/:id/alerts
 GET  /api/stations/:id/live
 
 POST /api/simulation/run
+```
 
 ---
 
-🚀 Getting Started
+## 🚀 Getting Started
 
-Prerequisites
+### Prerequisites
 
 - Node.js
 - npm
 
-Backend
+### Backend
 
+```bash
 cd backend
 npm install
 node server.js
+```
 
 Backend runs on:
 
+```text
 http://localhost:5000
+```
 
-Frontend
+### Frontend
 
 Open another terminal:
 
+```bash
 cd frontend
 npm install
 npm run dev
+```
 
 Frontend normally runs on:
 
+```text
 http://localhost:5173
+```
 
 ---
 
-💡 Digital Twin in Action
+## 💡 Digital Twin in Action
 
 The platform connects different station systems instead of treating them independently.
 
+```text
 Weather Event
       ↓
 Environmental Change
@@ -400,23 +425,22 @@ Operational Risk ↑
 Alert + Simulation
       ↓
 Recommended Action
+```
 
-This allows operators to move from simply observing current conditions to understanding the potential operational consequences of a scenario.
-
----
-
-🎯 Project Objective
-
-To provide a unified, interactive, and simulation-driven operational platform for Antarctic research stations that helps users monitor station health, identify risks, and evaluate possible responses to challenging conditions.
-
-«One platform. One operational view. Better decisions.»
+This allows operators to move from simply **observing current conditions** to understanding the potential operational consequences of a scenario.
 
 ---
 
-👥 Smart India Hackathon 2026
+## 🎯 Project Objective
 
-Problem Statement: PS-26060
-Project: Antarctic Digital Twin
-Domain: Antarctic Research Station Operations & Decision Support
+To provide a **unified, interactive, and simulation-driven operational platform** for Antarctic research stations that helps users monitor station health, identify risks, and evaluate possible responses to challenging conditions.
+
+> **One platform. One operational view. Better decisions.**
 
 ---
+
+## 👥 Smart India Hackathon 2026
+
+**Problem Statement:** PS-26060  
+**Project:** Antarctic Digital Twin  
+**Domain:** Antarctic Research Station Operations & Decision Support

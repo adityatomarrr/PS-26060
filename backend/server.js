@@ -12,19 +12,10 @@ const { runSimulation } = require("./simulation/simulationEngine");
 
 const app = express();
 
-// Use hosting provider's PORT in production
 const PORT = process.env.PORT || 5000;
-
-// ===============================
-// MIDDLEWARE
-// ===============================
 
 app.use(cors());
 app.use(express.json());
-
-// ===============================
-// ROOT
-// ===============================
 
 app.get("/", (req, res) => {
   res.json({
@@ -39,10 +30,6 @@ app.get("/", (req, res) => {
   });
 });
 
-// ===============================
-// HEALTH
-// ===============================
-
 app.get("/api/health", (req, res) => {
   res.json({
     status: "OK",
@@ -50,10 +37,6 @@ app.get("/api/health", (req, res) => {
     timestamp: new Date().toISOString(),
   });
 });
-
-// ===============================
-// STATIONS
-// ===============================
 
 app.get("/api/stations", (req, res) => {
   res.json(stations);
@@ -73,10 +56,6 @@ app.get("/api/stations/:id", (req, res) => {
   res.json(station);
 });
 
-// ===============================
-// ENVIRONMENT
-// ===============================
-
 app.get("/api/stations/:id/environment", (req, res) => {
   const data = environmentData[req.params.id];
 
@@ -88,10 +67,6 @@ app.get("/api/stations/:id/environment", (req, res) => {
 
   res.json(data);
 });
-
-// ===============================
-// ENERGY
-// ===============================
 
 app.get("/api/stations/:id/energy", (req, res) => {
   const data = energyData[req.params.id];
@@ -105,10 +80,6 @@ app.get("/api/stations/:id/energy", (req, res) => {
   res.json(data);
 });
 
-// ===============================
-// INVENTORY
-// ===============================
-
 app.get("/api/stations/:id/inventory", (req, res) => {
   const data = inventoryData[req.params.id];
 
@@ -120,10 +91,6 @@ app.get("/api/stations/:id/inventory", (req, res) => {
 
   res.json(data);
 });
-
-// ===============================
-// INFRASTRUCTURE / ASSETS
-// ===============================
 
 app.get("/api/stations/:id/assets", (req, res) => {
   const station = stations.find(
@@ -138,7 +105,6 @@ app.get("/api/stations/:id/assets", (req, res) => {
 
   res.json({
     stationId: station.id,
-
     assets: [
       {
         id: "power-system",
@@ -200,10 +166,6 @@ app.get("/api/stations/:id/assets", (req, res) => {
   });
 });
 
-// ===============================
-// LOGISTICS
-// ===============================
-
 app.get("/api/stations/:id/logistics", (req, res) => {
   const inventory = inventoryData[req.params.id];
 
@@ -223,25 +185,16 @@ app.get("/api/stations/:id/logistics", (req, res) => {
 
   res.json({
     stationId: req.params.id,
-
     resupplyRequired: lowStockItems.length > 0,
-
     lowStockItems,
-
     highPriorityItems,
-
     nextResupplyWindow: "14 days",
-
     status:
       lowStockItems.length > 0
         ? "MONITOR"
         : "READY",
   });
 });
-
-// ===============================
-// ALERTS
-// ===============================
 
 app.get("/api/stations/:id/alerts", (req, res) => {
   const environment = environmentData[req.params.id];
@@ -264,10 +217,6 @@ app.get("/api/stations/:id/alerts", (req, res) => {
   });
 });
 
-// ===============================
-// LIVE TELEMETRY
-// ===============================
-
 app.get("/api/stations/:id/live", (req, res) => {
   const state = getLiveState(req.params.id);
 
@@ -280,21 +229,15 @@ app.get("/api/stations/:id/live", (req, res) => {
   res.json(state);
 });
 
-// ===============================
-// SIMULATION
-// ===============================
-
 app.post("/api/simulation/run", (req, res) => {
   const { stationId, scenario } = req.body;
 
-  // Validate station ID
   if (!stationId) {
     return res.status(400).json({
       message: "stationId is required",
     });
   }
 
-  // Validate scenario
   if (!scenario) {
     return res.status(400).json({
       message: "scenario is required",
@@ -340,20 +283,12 @@ app.post("/api/simulation/run", (req, res) => {
   }
 });
 
-// ===============================
-// 404 HANDLER
-// ===============================
-
 app.use((req, res) => {
   res.status(404).json({
     message: "API endpoint not found",
     path: req.originalUrl,
   });
 });
-
-// ===============================
-// GLOBAL ERROR HANDLER
-// ===============================
 
 app.use((err, req, res, next) => {
   console.error("Server error:", err);
@@ -362,10 +297,6 @@ app.use((err, req, res, next) => {
     message: "Internal server error",
   });
 });
-
-// ===============================
-// START SERVER
-// ===============================
 
 app.listen(PORT, "0.0.0.0", () => {
   console.log(

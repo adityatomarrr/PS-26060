@@ -56,8 +56,7 @@ import {
 import "leaflet/dist/leaflet.css";
 import "./theme.css";
 
-const API = "http://localhost:5000/api";
-
+const API = "https://nivora-unvx.onrender.com/api";
 const NAV = [
   ["Overview", Activity],
   ["Stations", Building2],

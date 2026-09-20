@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+  background: #050a12;
+  color: #e2e8f0;
+
+  --color-primary: #00f2fe;
+  --color-primary-glow: rgba(0, 242, 254, 0.35);
+  --color-secondary: #38bdf8;
+  --color-bg: #050a12;
+  --color-surface: rgba(15, 23, 42, 0.75);
+  --color-surface-hover: rgba(30, 41, 59, 0.85);
+  --color-border: rgba(56, 189, 248, 0.2);
+  --color-border-glow: rgba(0, 242, 254, 0.5);
+  --color-accent: #f59e0b;
+  --color-critical: #ef4444;
+  --color-success: #10b981;
+}
+
+html, body, #root {
+  min-height: 100%;
+  margin: 0;
+  background: #050a12;
+}
+
+body {
+  background: #050a12;
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 242, 254, 0.08), transparent),
+    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.04), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(16, 185, 129, 0.03), transparent 40%);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* Tabular figures for telemetry data */
+.font-mono, .tabular-nums {
+  font-family: 'JetBrains Mono', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom Polar Scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.3) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 10, 18, 0.6);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.25);
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 242, 254, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 254, 0.45);
+}
+
+/* Selection */
+*::selection {
+  background: rgba(0, 242, 254, 0.3);
+  color: #ffffff;
+}
+
+/* 3D Perspective Card Tilt & Elevation */
+.card-3d {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-3d:hover {
+  transform: translateY(-3px) scale(1.01);
+  border-color: rgba(0, 242, 254, 0.45) !important;
+  box-shadow: 0 16px 36px -10px rgba(0, 242, 254, 0.15), 0 0 20px rgba(0, 242, 254, 0.08);
+}
+
+/* Sci-Fi HUD Glassmorphism Panels */
+.hud-panel {
+  background: rgba(10, 19, 36, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.6);
+}
+
+.hud-panel-glow {
+  border-color: rgba(0, 242, 254, 0.4);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Scanning line effect */
+.scanline-overlay {
+  position: relative;
+  overflow: hidden;
+}
+
+.scanline-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 242, 254, 0.02) 50%);
+  background-size: 100% 4px;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Leaflet Map Polar Tactical Theme */
+.leaflet-container {
+  font-family: inherit;
+  background: #08111e !important;
+}
+
+/* Dark mode invert for OpenStreetMap tiles to give tactical polar sci-fi look */
+.leaflet-tile {
+  filter: brightness(0.65) invert(1) contrast(3) hue-rotate(200deg) saturate(0.35) brightness(0.85);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: #091322 !important;
+  color: #e2e8f0 !important;
+  border: 1px solid rgba(0, 242, 254, 0.4) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.8) !important;
+  border-radius: 12px !important;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+/* Radar pulse animation */
+@keyframes radar-ping {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar-ping 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Buttons and Inputs */
+button, select, input {
+  font: inherit;
+}
